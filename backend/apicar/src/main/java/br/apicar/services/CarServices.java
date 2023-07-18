@@ -103,4 +103,10 @@ public class CarServices {
         }
 
     }
+
+    public ResponseEntity<CarResponse> deletar(Long id){
+        carRepository.deleteById(id);
+        carResponse.setSmsResponse("Carro deletado com sucesso.");
+        return new ResponseEntity<CarResponse>(carResponse, HttpStatus.OK);
+    }
 }

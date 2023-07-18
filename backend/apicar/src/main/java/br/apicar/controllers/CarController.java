@@ -2,10 +2,13 @@ package br.apicar.controllers;
 
 import br.apicar.dto.CarMinDTO;
 import br.apicar.models.CarModel;
+import br.apicar.response.CarResponse;
 import br.apicar.services.CarServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -34,4 +37,8 @@ public class CarController {
         return carServices.alterar(car);
     }
 
+    @DeleteMapping("/deletar/{id}")
+    public ResponseEntity<CarResponse> deletar(@PathVariable Long id){
+        return carServices.deletar(id);
+    }
 }
