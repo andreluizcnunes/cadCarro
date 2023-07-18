@@ -30,6 +30,7 @@ public class CarServices {
         return car.stream().map(x -> new CarMinDTO(x)).toList();
     }
 
+    // Metodo para cadastrar carro
     public ResponseEntity<?> cadastrar(CarModel car){
 
         if(car.getFabricante().equals("")){
@@ -62,6 +63,43 @@ public class CarServices {
 
         }else{
             return new ResponseEntity<CarModel>(carRepository.save(car), HttpStatus.CREATED);
+        }
+
+    }
+
+    //metodo para alterar o produto
+    public ResponseEntity<?> alterar(CarModel car){
+
+        if(car.getFabricante().equals("")){
+            carResponse.setSmsResponse("O fabricante é obrigatório.");
+            return new ResponseEntity<CarResponse>(carResponse, HttpStatus.BAD_REQUEST);
+
+        } else if (car.getModelo().equals("")) {
+            carResponse.setSmsResponse("O modelo é obrigatório.");
+            return new ResponseEntity<CarResponse>(carResponse, HttpStatus.BAD_REQUEST);
+            
+        } else if (car.getAno().equals("")) {
+            carResponse.setSmsResponse("Ano é obrigatório.");
+            return new ResponseEntity<CarResponse>(carResponse, HttpStatus.BAD_REQUEST);
+
+        } else if (car.getTipoCombustivel().equals("")) {
+            carResponse.setSmsResponse("Tipo de combustivel é obrigatório");
+            return  new ResponseEntity<CarResponse>(carResponse, HttpStatus.BAD_REQUEST);
+
+        } else if (car.getMotor().equals("")) {
+            carResponse.setSmsResponse("Motor é obrigatorio");
+            return new ResponseEntity<CarResponse>(carResponse, HttpStatus.BAD_REQUEST);
+
+        } else if (car.getPotencia().equals("")) {
+            carResponse.setSmsResponse("Potencia é obrigatorio");
+            return new ResponseEntity<CarResponse>(carResponse, HttpStatus.BAD_REQUEST);
+
+        } else if (car.getTransmissao().equals("")) {
+            carResponse.setSmsResponse("Transmissão é obrigatorio");
+            return new ResponseEntity<CarResponse>(carResponse, HttpStatus.BAD_REQUEST);
+
+        }else{
+            return new ResponseEntity<CarModel>(carRepository.save(car), HttpStatus.OK);
         }
 
     }
