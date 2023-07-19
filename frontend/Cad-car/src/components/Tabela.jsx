@@ -2,13 +2,13 @@ import React from "react";
 
 const Tabela = () =>{
     return(
-        <table className="table">
+        <table className="table mt-4">
             <thead>
                 <tr>
                     <th>#</th>
-                    <th>modelo</th>
-                    <th>fabricante</th>
-                    <th>ano</th>
+                    <th>Modelo</th>
+                    <th>Fabricante</th>
+                    <th>Ano</th>
                     <th>Combustivel</th>
                     <th>Motor</th>
                     <th>Potencia</th>
