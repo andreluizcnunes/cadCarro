@@ -5,31 +5,14 @@ const Formulario = ({ botao }) => {
         <form className="row g-3">
             <h2>Cadastro de Carro</h2>
 
-            <div class="col-md-6">
-                <label for="fabricante" class="form-label">Fabircante:</label>
-                <select id="fabricante" class="form-select" name="fabricante">
-                    <option selected value="Audi">Audi</option>
-                    <option value="BMW">BMW</option>
-                    <option value="CAOA-Chery">CAOA Chery</option>
-                    <option value="Chevrolet">Chevrolet</option>
-                    <option value="Citroen">Citroen</option>
-                    <option value="Fiat">Fiat</option>
-                    <option value="Ford">Ford</option>
-                    <option value="Honda">Honda</option>
-                    <option value="Hyundai">Hyundai</option>
-                    <option value="Jeep">Jeep</option>
-                    <option value="Mercedes-Benz">Mercedes Benz</option>
-                    <option value="Nissan">Nissan</option>
-                    <option value="Peugeot">Peugeot</option>
-                    <option value="Renault">Renault</option>
-                    <option value="Toyota">Toyota</option>
-                    <option value="Volkswagen">Volkswagen</option>
-                </select>
+            <div className="col-md-6">
+            <label htmlFor="fabricante" className="form-label">Fabricante:</label>
+                <input type="text" id="fabricante" name="fabricante" className="form-control" />
             </div>
 
             <div className="col-md-6">
                 <label htmlFor="modelo" className="form-label">Modelo:</label>
-                <input type="email" id="modelo" name="modelo" className="form-control" />
+                <input type="text" id="modelo" name="modelo" className="form-control" />
             </div>
 
             <div className="col-md-6">
@@ -60,12 +43,12 @@ const Formulario = ({ botao }) => {
             {
                 botao
                 ?
-                    <input type="button" value='Cadastrar' className="btn btn-primary col-md-2"/>
+                    <input type="button" defaultValue='Cadastrar' className="btn btn-primary col-md-2"/>
                 :
                     <div className="d-flex gap-3">
-                        <input type="button" value='Alterar' className="btn btn-warning col-md-3"/>
-                        <input type="button" value='Remover' className="btn btn-danger col-md-3"/>
-                        <input type="button" value='Cancelar' className="btn btn-secondary col-md-3"/>
+                        <input type="button" defaultValue='Alterar' className="btn btn-warning col-md-3"/>
+                        <input type="button" defaultValue='Remover' className="btn btn-danger col-md-3"/>
+                        <input type="button" defaultValue='Cancelar' className="btn btn-secondary col-md-3"/>
                     </div>                    
 
                 }
