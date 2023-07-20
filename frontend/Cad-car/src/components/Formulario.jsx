@@ -1,6 +1,6 @@
 import React from "react";
 
-const Formulario = ({ botao, getDadosForm }) => {
+const Formulario = ({ botao, getDadosForm, cadastrar, obj }) => {
     return (
         <form className="row g-3">
             <h2>Cadastro de Carro</h2>
@@ -13,6 +13,7 @@ const Formulario = ({ botao, getDadosForm }) => {
                     name="fabricante" 
                     className="form-control" 
                     onChange={getDadosForm}
+                    value={obj.fabricante}
                 />
             </div>
 
@@ -24,6 +25,7 @@ const Formulario = ({ botao, getDadosForm }) => {
                     name="modelo" 
                     className="form-control" 
                     onChange={getDadosForm}
+                    value={obj.modelo}
                 />
             </div>
 
@@ -35,6 +37,7 @@ const Formulario = ({ botao, getDadosForm }) => {
                     name="ano" 
                     className="form-control" 
                     onChange={getDadosForm}
+                    value={obj.ano}
                 />
             </div>
 
@@ -46,6 +49,7 @@ const Formulario = ({ botao, getDadosForm }) => {
                     name="tipoCombustivel" 
                     className="form-control" 
                     onChange={getDadosForm}
+                    value={obj.tipoCombustivel}
                 />
             </div>
 
@@ -57,6 +61,7 @@ const Formulario = ({ botao, getDadosForm }) => {
                     name="motor" 
                     className="form-control" 
                     onChange={getDadosForm}
+                    value={obj.motor}
                 />
             </div>
 
@@ -68,6 +73,7 @@ const Formulario = ({ botao, getDadosForm }) => {
                     name="potencia" 
                     className="form-control" 
                     onChange={getDadosForm}
+                    value={obj.potencia}
                 />
             </div>
 
@@ -79,13 +85,14 @@ const Formulario = ({ botao, getDadosForm }) => {
                     name="transmissao" 
                     className="form-control"
                     onChange={getDadosForm}
+                    value={obj.transmissao}
                 />
             </div>
             
             {
                 botao
                 ?
-                    <input type="button" defaultValue='Cadastrar' className="btn btn-primary col-md-2"/>
+                    <input type="button" defaultValue='Cadastrar' onClick={cadastrar} className="btn btn-primary col-md-2"/>
                 :
                     <div className="d-flex gap-3">
                         <input type="button" defaultValue='Alterar' className="btn btn-warning col-md-3"/>
