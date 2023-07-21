@@ -56,6 +56,12 @@ function App() {
   //Limpar formulario
   const limparFormulario = () =>{
     setObjCarro(carro);
+    setBtnCadastrar(true);
+  }
+
+  const selecionarCarro = (indice) =>{
+    setObjCarro(carros[indice]);
+    setBtnCadastrar(false);
   }
 
   //Retorno
@@ -66,9 +72,11 @@ function App() {
         getDadosForm={getInputForm}
         cadastrar={cadastrar}
         obj={objCarro}
+        cancelar={limparFormulario}
       />
       <Tabela
         vetor={carros}
+        selecionar={selecionarCarro}
       />
     </div>
   )

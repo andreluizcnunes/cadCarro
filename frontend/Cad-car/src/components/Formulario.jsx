@@ -1,6 +1,6 @@
 import React from "react";
 
-const Formulario = ({ botao, getDadosForm, cadastrar, obj }) => {
+const Formulario = ({ botao, getDadosForm, cadastrar, obj, cancelar }) => {
     return (
         <form className="row g-3">
             <h2>Cadastro de Carro</h2>
@@ -97,7 +97,7 @@ const Formulario = ({ botao, getDadosForm, cadastrar, obj }) => {
                     <div className="d-flex gap-3">
                         <input type="button" defaultValue='Alterar' className="btn btn-warning col-md-3"/>
                         <input type="button" defaultValue='Remover' className="btn btn-danger col-md-3"/>
-                        <input type="button" defaultValue='Cancelar' className="btn btn-secondary col-md-3"/>
+                        <input type="button" onClick={cancelar} defaultValue='Cancelar' className="btn btn-secondary col-md-3"/>
                     </div>                    
 
                 }
