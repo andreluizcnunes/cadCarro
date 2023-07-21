@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import './App.css'
 import Formulario from './components/Formulario'
 import Tabela from './components/Tabela'
 
@@ -53,6 +54,42 @@ function App() {
     })
   }
 
+  //Cadastrar Carro
+  const remover = () =>{
+    fetch('http://localhost:8080/deletar/'+objCarro.id,{
+      method: 'delete',
+      headers:{
+        'Content-type':'application/json',
+        'Accept':'application/json'
+      }
+    })
+    .then(retorno => retorno.json())
+    .then(retorno_convertido => {
+      
+      // mensagem de sucesso
+      alert("Removido com sucesso!");
+
+      // vetor temporaro, copiando o vetor original
+
+      let vetorTemp = [...carros];
+
+      // buscando o indece
+      let indice = vetorTemp.findIndex((e) => {
+        return e.id === objCarro.id;
+      });
+
+      // remove o produto do vetor
+      vetorTemp.slice(indice, 1);
+
+      // atualizando o vetor
+      setCarros(vetorTemp);
+
+      // limpando o formulario
+      limparFormulario();
+      window.location.reload();
+    })
+  }
+
   //Limpar formulario
   const limparFormulario = () =>{
     setObjCarro(carro);
@@ -62,6 +99,7 @@ function App() {
   const selecionarCarro = (indice) =>{
     setObjCarro(carros[indice]);
     setBtnCadastrar(false);
+    window.scrollTo(0, 0);
   }
 
   //Retorno
@@ -73,6 +111,7 @@ function App() {
         cadastrar={cadastrar}
         obj={objCarro}
         cancelar={limparFormulario}
+        remover={remover}
       />
       <Tabela
         vetor={carros}

@@ -30,7 +30,9 @@ const Tabela = ({ vetor, selecionar }) =>{
                             <td>{obj.potencia}</td>
                             <td>{obj.transmissao}</td>
                             <td>
-                                <button onClick={() => {selecionar(indice)}} className="btn btn-success">Selecionar</button>
+                                <button onClick={() => {selecionar(indice)}}className="btn btn-success">
+                                        Selecionar
+                                </button>
                             </td>
                         </tr>
                     ))
